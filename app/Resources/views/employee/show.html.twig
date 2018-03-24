@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Employee</h1>
+
+    <table  class="table table-bordered">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ employee.id }}</td>
+            </tr>
+            <tr>
+                <th>Firstname</th>
+                <td>{{ employee.firstName }}</td>
+            </tr>
+            <tr>
+                <th>Lastname</th>
+                <td>{{ employee.lastName }}</td>
+            </tr>
+            <tr>
+                <th>Address</th>
+                <td>{{ employee.address }}</td>
+            </tr>
+            <tr>
+                <th>Dateofjoining</th>
+                <td>{% if employee.dateOfJoining %}{{ employee.dateOfJoining|newDateFormat }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Modifieddate</th>
+                <td>{% if employee.modifiedDate %}{{ employee.modifiedDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    {#<ul>
+        <li>#}
+    <div>
+        {#</li>
+        <li>#}
+            {{ form_start(delete_form) }}
+                        <a href="{{ path('department_index') }}" class="btn btn-info">Department list</a>
+            <a href="{{ path('employee_index') }}" class="btn btn-info">Back to the list</a>
+        {#</li>
+        <li>#}
+            <a href="{{ path('employee_edit', { 'id': employee.id }) }}" class="btn btn-info">Edit</a>
+                <input type="submit" value="Delete" class="btn btn-info">
+            {{ form_end(delete_form) }}
+        {#</li>
+    </ul>#}
+    </div>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Department creation</h1>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <div style="margin-top: 20px;">
+        <input type="submit" class="btn btn-primary" value="Create" />
+                        <a href="{{ path('employee_index') }}" class="btn btn-info">Employee list</a>
+        <a href="{{ path('department_index') }}"   class="btn btn-info">Back to the list</a>
+        </div>
+    {{ form_end(form) }}
+
+    {#<ul>
+        <li>
+            <a href="{{ path('department_index') }}"   class="btn btn-info">Back to the list</a>
+        </li>
+    </ul>#}
+{% endblock %}
