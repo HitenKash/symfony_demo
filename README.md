@@ -1,69 +1,28 @@
-Symfony Standard Edition
+Symfony Demo
 ========================
 
-Welcome to the Symfony Standard Edition - a fully-functional Symfony
-application that you can use as the skeleton for your new applications.
+This is  a demo. Kindly folow below steps for installations.
+1) git pull
+2) Add database credentials in app/config/parameters.yml
+3) composer install
+4) php app/console doctrine:schema:update --dump-sql
+5) php app/console doctrine:schema:update --force
+6) Create users one admin and other super-admin because admin have access to employee and super-admin had both employee and department
+7) php app/console fos:user:create adminuser --super-admin
+8) php app/console fos:user:demote testuser ROLE_ADMIN
 
-For details on how to download and get started with Symfony, see the
-[Installation][1] chapter of the Symfony Documentation.
 
-What's inside?
---------------
+as per requirements there are flowing features in the project
+1) Few doctrine entities (two entities employee and department)
+2) CRUD application (crud application on both employee and department)
+3) One custom doctrine extension (there is a postupdate event on employee, wherever there is employee updated it automatically add modified_date in database in employee column src\DemoBundle\EventListener\PostEmployee.php)
+4) One custom DQL function there are two places where I have used custom DQL one in src\DemoBundle\EventListener\PostEmployee.php and other at src\DemoBundle\Form\EmployeeType.php
+5) One custom twig extension (src\DemoBundle\Twig\DemoExtension.php For custom date format)
+6) Authentication there is FOS user Auth
+7) Symfony events (src\DemoBundle\EventListener\ExceptionListener.php)
+8) Symfony ACL (admin have access to employee and super-admin had both employee and department)
 
-The Symfony Standard Edition is configured with the following defaults:
 
-  * An AppBundle you can use to start coding;
-
-  * Twig as the only configured template engine;
-
-  * Doctrine ORM/DBAL;
-
-  * Swiftmailer;
-
-  * Annotations enabled for everything.
-
-It comes pre-configured with the following bundles:
-
-  * **FrameworkBundle** - The core Symfony framework bundle
-
-  * [**SensioFrameworkExtraBundle**][6] - Adds several enhancements, including
-    template and routing annotation capability
-
-  * [**DoctrineBundle**][7] - Adds support for the Doctrine ORM
-
-  * [**TwigBundle**][8] - Adds support for the Twig templating engine
-
-  * [**SecurityBundle**][9] - Adds security by integrating Symfony's security
-    component
-
-  * [**SwiftmailerBundle**][10] - Adds support for Swiftmailer, a library for
-    sending emails
-
-  * [**MonologBundle**][11] - Adds support for Monolog, a logging library
-
-  * **WebProfilerBundle** (in dev/test env) - Adds profiling functionality and
-    the web debug toolbar
-
-  * **SensioDistributionBundle** (in dev/test env) - Adds functionality for
-    configuring and working with Symfony distributions
-
-  * [**SensioGeneratorBundle**][13] (in dev/test env) - Adds code generation
-    capabilities
-
-  * **DebugBundle** (in dev/test env) - Adds Debug and VarDumper component
-    integration
-
-All libraries and bundles included in the Symfony Standard Edition are
-released under the MIT or BSD license.
-
-Enjoy!
-
-[1]:  https://symfony.com/doc/2.8/setup.html
-[6]:  https://symfony.com/doc/current/bundles/SensioFrameworkExtraBundle/index.html
-[7]:  https://symfony.com/doc/2.8/doctrine.html
-[8]:  https://symfony.com/doc/2.8/templating.html
-[9]:  https://symfony.com/doc/2.8/security.html
-[10]: https://symfony.com/doc/2.8/email.html
-[11]: https://symfony.com/doc/2.8/logging.html
-[12]: https://symfony.com/doc/2.8/assetic/asset_management.html
-[13]: https://symfony.com/doc/current/bundles/SensioGeneratorBundle/index.html
+Atuhor:
+Sharma Kailash
+kailash_kds@yahoo.com
