@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Department edit</h1>
+
+    {{ form_start(edit_form) }}
+        {{ form_widget(edit_form) }}
+         <div style="margin-top: 20px;">
+        <input type="submit" class="btn btn-primary" value="Edit" />
+         </div>
+    {{ form_end(edit_form) }}
+
+{#    <ul>
+        <li>
+            <a href="{{ path('department_index') }}"   class="btn btn-info">Back to the list</a>
+        </li>
+        <li>#}
+            {{ form_start(delete_form) }}
+         <div style="margin-top: 20px;">
+                <input type="submit" class="btn btn-primary" value="Delete">
+                <a href="{{ path('employee_index') }}" class="btn btn-info">Employee list</a>
+                <a href="{{ path('department_index') }}"   class="btn btn-info">Back to the list</a>
+         </div>
+            {{ form_end(delete_form) }}
+        {#</li>
+    </ul>#}
+{% endblock %}

@@ -1,0 +1,19 @@
+services:
+    app.form.type.task:
+        class: DemoBundle\Form\EmployeeType
+        arguments: ['@doctrine.orm.entity_manager']
+        tags:
+            - { name: form.type }
+    eventListener:
+        class: DemoBundle\EventListener\PostEmployee
+        tags:
+            - { name: doctrine.event_listener, event: postUpdate, method: postUpdate  }
+    demo.twig_extension:
+        class: DemoBundle\Twig\DemoExtension
+        public: false
+        tags:
+            - { name: twig.extension }
+    app.exception_listener:
+        class: DemoBundle\EventListener\ExceptionListener
+        tags:
+            - { name: kernel.event_listener, event: kernel.exception }

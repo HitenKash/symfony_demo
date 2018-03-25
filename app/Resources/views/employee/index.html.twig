@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Employees list</h1>
+
+    <table  class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Address</th>
+                <th>Dateofjoining</th>
+                <th>Modifieddate</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for employee in employees %}
+            <tr>
+                <td><a href="{{ path('employee_show', { 'id': employee.id }) }}">{{ employee.id }}</a></td>
+                <td>{{ employee.firstName }}</td>
+                <td>{{ employee.lastName }}</td>
+                <td>{{ employee.address }}</td>
+                <td>{% if employee.dateOfJoining %}{{ employee.dateOfJoining|newDateFormat }}{% endif %}</td>
+                <td>{% if employee.modifiedDate %}{{ employee.modifiedDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                  {#  <ul>
+                        <li>#}
+                            <a href="{{ path('employee_show', { 'id': employee.id }) }}" class="btn btn-info" role="button">show</a>
+                    {#    </li>
+                        <li> #}
+                            <a href="{{ path('employee_edit', { 'id': employee.id }) }}" class="btn btn-info" role="button">edit</a>
+                        {#</li>
+                    </ul>#}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{#    <ul>
+        <li>
+#}            <a href="{{ path('employee_new') }}" class="btn btn-info" role="button">Create a new employee</a>
+            <a href="{{ path('department_index') }}" class="btn btn-info">Department list</a>
+{#        </li>
+    </ul>#}
+{% endblock %}
